@@ -1,0 +1,13 @@
+pandas
+numpy
+sklearn
+geopandas
+sagemaker
+fsspec
+s3fs
+pyarrow
+pymysql
+sqlalchemy
+Shapely
+pygeos
+rtree

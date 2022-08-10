@@ -1,5 +1,6 @@
 import pandas as pd
 import json
+import os
 import numpy as np
 from sklearn.neighbors import BallTree
 from operator import itemgetter
@@ -186,11 +187,11 @@ def handler(event, context):
     #        index=False,compression = 'snappy'
     #        )
 
-    host='database-4.cyb8qmtjr8ga.us-east-1.rds.amazonaws.com'
+    host= os.environ['HOST']
     port=int(3306)
-    user="admin"
-    passw="chachechichochu"
-    database="db_cde"
+    user= os.environ['USER']
+    passw= os.environ['PASS']
+    database= os.environ['DATABASE']
     mydb = create_engine('mysql+pymysql://' + user + ':' + passw + '@' + host + ':' + str(port) + '/' + database , echo=False)
     
     df_join.to_sql(name="properties", con=mydb, if_exists = 'replace', index=False)
